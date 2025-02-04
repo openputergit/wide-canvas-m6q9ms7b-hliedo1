@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bharat Kandpal - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        body {
+            background: #000;
+            color: #C0C0C0;
+            overflow-x: hidden;
+        }
+
+        .liquid-text {
+            background: linear-gradient(to right, #C0C0C0, #ffffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .section {
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .section.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .particle {
+            position: fixed;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            transition: transform 1s ease;
+        }
+
+        .nav-button {
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-button::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #C0C0C0;
+            transition: width 0.3s ease;
+        }
+
+        .nav-button:hover::after {
+            width: 100%;
+        }
+
+        .tile {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tile:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-black/90 backdrop-blur-lg z-50 border-b border-gray-800">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-wrap justify-center gap-4">
+                <button class="nav-button px-4 py-2 text-silver hover:text-white" onclick="showSection('skills')">Skills</button>
+                <button class="nav-button px-4 py-2 text-silver hover:text-white" onclick="showSection('projects')">Projects</button>
+                <button class="nav-button px-4 py-2 text-silver hover:text-white" onclick="showSection('experience')">Experience</button>
+                <button class="nav-button px-4 py-2 text-silver hover:text-white" onclick="showSection('education')">Education</button>
+                <button class="nav-button px-4 py-2 text-silver hover:text-white" onclick="showSection('contact')">Contact</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 pt-24 pb-12">
+        <!-- Hero Section -->
+        <section class="text-center mb-20">
+            <h1 class="liquid-text text-4xl md:text-6xl font-bold mb-4">Bharat Kandpal</h1>
+            <p class="text-xl text-gray-400">ServiceNow Developer & Full Stack Engineer</p>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section mb-20">
+            <h2 class="liquid-text text-3xl font-bold mb-8">Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="tile p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">Development</h3>
+                    <ul class="space-y-2">
+                        <li>ServiceNow Developer & Administrator</li>
+                        <li>Java, SQL, Python</li>
+                        <li>JavaScript, HTML, CSS, JQuery, Vue.js</li>
+                    </ul>
+                </div>
+                <div class="tile p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">Database & Systems</h3>
+                    <ul class="space-y-2">
+                        <li>MongoDB, MySQL</li>
+                        <li>Linux, Windows</li>
+                    </ul>
+                </div>
+                <div class="tile p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">Tools</h3>
+                    <ul class="space-y-2">
+                        <li>Visual Studio</li>
+                        <li>Atom</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section mb-20">
+            <h2 class="liquid-text text-3xl font-bold mb-8">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="tile p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">Sorting Visualizer</h3>
+                    <p>Interactive web app that visualizes sorting algorithms with JavaScript & CSS</p>
+                </div>
+                <div class="tile p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">AI Chatbot</h3>
+                    <p>MERN stack chatbot with NLP capabilities and ML integration</p>
+                </div>
+                <div class="tile p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">Multilingual Chatroom</h3>
+                    <p>Real-time chat app with multilingual support via third-party APIs</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section mb-20">
+            <h2 class="liquid-text text-3xl font-bold mb-8">Experience</h2>
+            <div class="grid grid-cols-1 gap-6">
+                <div class="tile p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold">ServiceNow Developer</h3>
+                    <p class="text-gray-400">Vialto - Current</p>
+                </div>
+                <div class="tile p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold">Frontend Developer Intern</h3>
+                    <p class="text-gray-400">Contata Solutions</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="section mb-20">
+            <h2 class="liquid-text text-3xl font-bold mb-8">Education</h2>
+            <div class="grid grid-cols-1 gap-6">
+                <div class="tile p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold">Bachelor of Engineering in CSE</h3>
+                    <p class="text-gray-400">Graphic Era Hill University (2024)</p>
+                </div>
+                <div class="tile p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold">Diploma in CSE</h3>
+                    <p class="text-gray-400">Govt. Polytechnic, Kotabagh (2021)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <h2 class="liquid-text text-3xl font-bold mb-8">Contact</h2>
+            <div class="tile p-6 rounded-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <a href="mailto:bhrtkndpal@gmail.com" class="flex items-center gap-2 hover:text-white">
+                        <i class="bi bi-envelope"></i>
+                        bhrtkndpal@gmail.com
+                    </a>
+                    <a href="tel:+917217368597" class="flex items-center gap-2 hover:text-white">
+                        <i class="bi bi-phone"></i>
+                        +91 7217368597
+                    </a>
+                    <a href="https://www.linkedin.com/in/bharat-kandpal-4a9544247" target="_blank" class="flex items-center gap-2 hover:text-white">
+                        <i class="bi bi-linkedin"></i>
+                        LinkedIn Profile
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Section visibility handling
+        function showSection(sectionId) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+        }
+
+        // Initialize all sections as visible
+        document.querySelectorAll('.section').forEach(section => {
+            section.classList.add('active');
+        });
+
+        // Particle animation
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.width = Math.random() * 4 + 'px';
+            particle.style.height = particle.style.width;
+            particle.style.left = Math.random() * window.innerWidth + 'px';
+            particle.style.top = '-5px';
+            document.body.appendChild(particle);
+
+            const animation = particle.animate([
+                { transform: 'translateY(0vh)' },
+                { transform: 'translateY(100vh)' }
+            ], {
+                duration: Math.random() * 2000 + 3000,
+                iterations: 1
+            });
+
+            animation.onfinish = () => particle.remove();
+        }
+
+        // Create particles periodically
+        setInterval(createParticle, 100);
+
+        // Smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
